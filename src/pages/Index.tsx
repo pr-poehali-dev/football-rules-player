@@ -3,7 +3,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Icon from '@/components/ui/icon';
 
 interface Player {
@@ -277,16 +276,8 @@ const Index = () => {
             </p>
           </div>
 
-          <Tabs defaultValue="all" className="w-full">
-            <TabsList className="grid w-full max-w-md mx-auto grid-cols-4 mb-12 glass-effect border-white/10">
-              <TabsTrigger value="all">Все</TabsTrigger>
-              <TabsTrigger value="forwards">Нападающие</TabsTrigger>
-              <TabsTrigger value="midfielders">Полузащита</TabsTrigger>
-              <TabsTrigger value="defenders">Защита</TabsTrigger>
-            </TabsList>
-
-            <TabsContent value="all" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {players.map((player, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {players.map((player, index) => (
                 <Card 
                   key={player.id} 
                   className="glass-effect border-white/10 hover-lift overflow-hidden group"
@@ -342,27 +333,8 @@ const Index = () => {
                     </div>
                   </CardContent>
                 </Card>
-              ))}
-            </TabsContent>
-
-            <TabsContent value="forwards">
-              <div className="text-center text-muted-foreground py-8">
-                Фильтр по нападающим
-              </div>
-            </TabsContent>
-
-            <TabsContent value="midfielders">
-              <div className="text-center text-muted-foreground py-8">
-                Фильтр по полузащитникам
-              </div>
-            </TabsContent>
-
-            <TabsContent value="defenders">
-              <div className="text-center text-muted-foreground py-8">
-                Фильтр по защитникам
-              </div>
-            </TabsContent>
-          </Tabs>
+            ))}
+          </div>
         </div>
       </section>
 
